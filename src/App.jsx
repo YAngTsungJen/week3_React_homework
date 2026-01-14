@@ -166,7 +166,12 @@ function App() {
             origin_price: Number(tempProduct.origin_price),
             price: Number(tempProduct.price),
             is_enabled: tempProduct.is_enabled ? 1 : 0,
-            imagesUrl:tempProduct.imagesUrl.filter(url => url !== '')
+            imagesUrl:tempProduct.imagesUrl.filter(url => {
+              if(url === ''){
+                return ['']
+              }
+              return url !== '';
+            })
         }
       }
       try {
